@@ -1,0 +1,30 @@
+CHECKER BY NOCTAMBULO
+Este script checkea cuentas de 
+
+°NETFLIX
+°HBO
+°PRIME 
+°DISNEY PLUS
+
+Antes de iniciar el script, instala el requirements.txt
+
+pip install -r requirements.txt
+
+para comenzar a usarlo, vamos a los txt de la carpeta "cuentas"
+
+EL CHECKER LEE LAS LINEAS DEL TXT EN EL SIGUIENTE FORMATO
+
+USUARIO:CONTRASEÑA 
+
+dejar siempre los : sin separar nada, si se separa no funcionara
+
+| las carpetas tienen que tener el siguiente formato para que el script pueda leerlas
+
+
+
+Si el chromedriver te llegase a dar problemas, verifica la version de tu chrome y actualiza el chromedrive.
+intenta mantenerlo siempre dentro de la carpeta raiz del checker.
+
+Si hay problemas, contactame: https://t.me/NoctaPaste
+
+actualmente esta en prueba, asi que en el futuro mejorare la velocidad y agregare mas...
