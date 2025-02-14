@@ -43,10 +43,14 @@ def take_screenshot(driver, email, platform_name):
 def login_checker(platform_name, login_url, input_file, output_file):
     """Función para verificar cuentas en la plataforma seleccionada."""
     try:
-        with open(input_file, "r") as file:
+        # Especificar la codificación 'utf-8' al abrir el archivo
+        with open(input_file, "r", encoding="utf-8") as file:
             accounts = file.readlines()
     except FileNotFoundError:
         print(f"No se encontró el archivo {input_file}.")
+        return
+    except UnicodeDecodeError:
+        print(f"Error de codificación al leer {input_file}. Intenta con un archivo en formato UTF-8.")
         return
     
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
@@ -108,6 +112,7 @@ def login_checker(platform_name, login_url, input_file, output_file):
         
         finally:
             driver.quit()
+
 print(Fore.CYAN + "VERSION 1.2")
 print(Fore.RED + "1. Netflix")
 print(Fore.BLUE + "2. Disney+")
