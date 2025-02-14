@@ -1,13 +1,13 @@
 
 ![STREAMCHECK 1 1](https://github.com/user-attachments/assets/a41d9b5a-e94a-4b09-b80d-c3ba651a76dd)
-
+-----------------------------------------------------------------------
 NOTAS DE VERSION 1.1
 
 SE ELIMINARON LOS CHECKERS DE HBO Y PRIME
-SE AGREGARON CHECKERS DE INSTAGRAM, KOGAMA Y IPVANISH
-SE ARREGLO EL BUG LOGIN DE DISNEY PLUS
-SE AGREGO UNA FUNCION DE CAPTURAS DE PANTALLAS PARA CUENTAS VALIDAS
-
+SE AGREGARON CHECKERS DE  📷INSTAGRAM, ⏹️KOGAMA Y 🛜IPVANISH 
+SE ARREGLO EL BUG LOGIN DE DISNEY PLUS 😁
+SE AGREGO UNA FUNCION DE CAPTURAS DE PANTALLAS PARA CUENTAS VALIDAS🖥️
+-----------------------------------------------------------------------
 CHECKER BY NOCTAMBULO
 Este script checkea cuentas de 
 
